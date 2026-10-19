@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BFS Robot Path Planning</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">Artificial Intelligence · Assignment 8</p>
+      <h1>BFS Robot Path Planning</h1>
+      <p class="subtitle">Watch breadth-first search find the shortest path through a grid.</p>
+    </header>
+
+    <section class="panel controls" aria-label="Simulation controls">
+      <button id="previous" type="button">← Previous</button>
+      <button id="play" class="primary" type="button">▶ Play</button>
+      <button id="next" type="button">Next →</button>
+      <button id="reset" type="button">↺ Reset</button>
+      <label class="speed-control">Speed
+        <input id="speed" type="range" min="200" max="1400" step="100" value="700">
+      </label>
+    </section>
+
+    <section class="layout">
+      <div class="panel board-panel">
+        <div class="status-row">
+          <span id="step-label">Step 0 / 0</span>
+          <span id="position-label">Robot: —</span>
+        </div>
+        <div id="grid" class="grid" role="grid" aria-label="Robot planning grid"></div>
+        <p id="message" class="message"></p>
+      </div>
+
+      <aside class="panel explanation">
+        <h2>How BFS works</h2>
+        <ol>
+          <li>Put <strong>S</strong> into a queue.</li>
+          <li>Remove the oldest cell from the queue.</li>
+          <li>Visit its unvisited, non-obstacle neighbours.</li>
+          <li>Repeat until <strong>G</strong> is reached.</li>
+        </ol>
+        <div class="legend">
+          <span><i class="legend-cell start">S</i> Start</span>
+          <span><i class="legend-cell goal">G</i> Goal</span>
+          <span><i class="legend-cell obstacle">X</i> Obstacle</span>
+          <span><i class="legend-cell path">•</i> Shortest path</span>
+        </div>
+        <p id="result" class="result"></p>
+      </aside>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

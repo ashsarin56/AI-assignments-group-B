@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DFS Maze Solving</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">Artificial Intelligence · Assignment 9</p>
+      <h1>DFS Maze Solving</h1>
+      <p class="subtitle">Follow depth-first search as it explores, reaches dead ends, and backtracks.</p>
+    </header>
+    <section class="panel controls" aria-label="Simulation controls">
+      <button id="previous" type="button">← Previous</button>
+      <button id="play" class="primary" type="button">▶ Play</button>
+      <button id="next" type="button">Next →</button>
+      <button id="reset" type="button">↺ Reset</button>
+      <label class="speed-control">Speed
+        <input id="speed" type="range" min="200" max="1400" step="100" value="700">
+      </label>
+    </section>
+    <section class="layout">
+      <div class="panel board-panel">
+        <div class="status-row">
+          <span id="step-label">Step 0 / 0</span>
+          <span id="position-label">Robot: —</span>
+        </div>
+        <div id="grid" class="grid" role="grid" aria-label="DFS maze"></div>
+        <p id="message" class="message"></p>
+      </div>
+      <aside class="panel explanation">
+        <h2>How DFS works</h2>
+        <ol>
+          <li>Start at <strong>S</strong> and mark the cell visited.</li>
+          <li>Choose the first available neighbour.</li>
+          <li>Continue deeper until reaching <strong>G</strong> or a dead end.</li>
+          <li>Backtrack when necessary and try another direction.</li>
+        </ol>
+        <div class="legend">
+          <span><i class="legend-cell start">S</i> Start</span>
+          <span><i class="legend-cell goal">G</i> Goal</span>
+          <span><i class="legend-cell obstacle">X</i> Wall</span>
+          <span><i class="legend-cell visited">·</i> Visited</span>
+          <span><i class="legend-cell path">•</i> Solution path</span>
+        </div>
+        <p id="result" class="result"></p>
+      </aside>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
